@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="sh_sopos_report_sp_wizard_form_view" model="ir.ui.view">
+            <field name="name">sh.sopos.report.sp.wizard.form.view</field>
+            <field name="model">sopos.salesperson.report</field>
+            <field name="arch" type="xml">
+                <form string="Sales and POS Report By Saleperson">
+                    <group>
+                        <group>
+                            <field name="date_start"/>
+                             <field name="state"/>                            
+                        </group>
+                        <group>
+                            <field name="date_end"/>
+                        </group>
+                    </group>
+
+                    <footer>
+                        <button name="print_report" string="Print" class="oe_highlight" type="object"/>
+                        <button string="Cancel" class="btn-default" special="cancel"/>
+                    </footer>
+                </form>
+
+
+            </field>
+        </record>
+
+        <record id="sh_sopos_report_sp_action" model="ir.actions.act_window">
+            <field name="name">Sales and POS Report By Saleperson</field>
+            <field name="res_model">sopos.salesperson.report</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem id="sh_sopos_report_sp_menuitem"
+                  name="Sales and POS Report By Saleperson"
+                  action="sh_sopos_report_sp_action"
+                  parent="sale.menu_sale_report"
+                  sequence="5"/>
+        <menuitem id="sh_sopos_report_sp_menuitem_pos"
+                  name="Sales and POS Report By Saleperson"
+                  action="sh_sopos_report_sp_action"
+                  parent="point_of_sale.menu_point_rep"
+                  sequence="5"/>
+        
+    </data>
+</odoo>
